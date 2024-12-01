@@ -32,6 +32,11 @@ class LinkedList {
     if (n == 1) {
       head = head?.next;
     }
+    //! current is switching in the first iteration
+    //! condition confusion
+    // if list is 1,2,3,4 now deleting 3rd node condition is 3-1=2;
+    //1st iteration condition true 1<2. current= current.next means Now, current is 2nd node and "i" become 2 codition false loop breaked;
+    //second node next assain second node next.next means 4th node;
     for (var i = 1; i < n - 1; i++) {
       current = current?.next;
     }
@@ -66,7 +71,7 @@ class LinkedList {
       }
     }
   }
-  
+
   midNodedelete() {
     Node? previous;
     Node? slow = head;
@@ -109,7 +114,6 @@ class LinkedList {
       current = current?.next;
     }
   }
-  
 }
 
 void main() {
@@ -119,12 +123,14 @@ void main() {
   obj.insertion(3);
   obj.insertion(4000);
   // obj.printintFunc();
-  LinkedList obj2 = LinkedList();
-  obj2.insertion(10);
-  obj2.insertion(20);
-  obj2.insertion(300);
-  obj2.insertion(400);
-  obj.mergeTwoLinkedList(obj2);
-  obj.sortingFunc();
+  // LinkedList obj2 = LinkedList();
+  obj.insertion(10);
+  obj.insertion(20);
+  obj.insertion(300);
+  obj.insertion(400);
+//  obj.mergeTwoLinkedList(obj2);
+  // obj.sortingFunc();
+  obj.deleteNthNode(4);
+
   obj.printintFunc();
 }
