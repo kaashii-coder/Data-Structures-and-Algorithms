@@ -13,13 +13,12 @@ class HashTable<K, V> {
     Entry<K, V> entry = Entry(key: key, value: value);
     int index = hash(key);
 
-    for (var i = 0; i < bucket.length; i++) {
-      for (var element in bucket[index]) {
-        if (element.key == key) {
-          return;
-        }
+    for (var element in bucket[index]) {
+      if (element.key == key) {
+        return;
       }
     }
+
     bucket[index].add(entry);
   }
 
@@ -95,8 +94,9 @@ void main() {
   obj.add('kunnu', 'special');
   obj.add('loola', 'character');
   obj.add('chillara paisha', 'lose');
-  obj.removeDuplicates(name.split(' ').join().split(''));
-  print(obj.keyUseToFindValue('kunnu'));
-  obj.frequency('akash'.split(''));
   obj.display();
+  // obj.removeDuplicates(name.split(' ').join().split(''));
+  // print(obj.keyUseToFindValue('kunnu'));
+  // obj.frequency('akash'.split(''));
+  // obj.display();
 }
